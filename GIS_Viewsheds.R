@@ -156,6 +156,12 @@ plot(settlements_my_viewshed, add=TRUE, legend=FALSE, col="red")
 
 print(settlements_my_viewshed)
 
-
+#using mapview
 settlements_my_viewshed<- st_transform(settlements_my_viewshed, 4326)
 mapview(settlements_my_viewshed)
+
+#using leaflet
+mymap <- leaflet() %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
+  addFeatures(settlements_my_viewshed)
+mymap
